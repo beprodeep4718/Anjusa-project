@@ -1,12 +1,12 @@
 
-import SplitText from "gsap-trial/SplitText"
+// import SplitText from "gsap-trial/SplitText"
 
-import gsap from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { useGSAP } from "@gsap/react";
 
 
-const Textanimation = ({refer}) => {
+const Textanimation = () => {
   // gsap.registerPlugin(useGSAP);
   // gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -39,13 +39,13 @@ const Textanimation = ({refer}) => {
   return (
     <>
     <div className=" p-5 border-b-2 border-[#CF7500]">
-        <h1 className="text-6xl font-[acta] font-bold">Establishment</h1>
+        <h1 className="text-[4vw] font-[acta] font-bold est-text-heading">Establishment</h1>
     </div>
         <div className="main-text-cont">
           <section id="textSection" className="p-5">
             <div className="container">
               <div className="wrapper">
-                <p className="white text-[3vw] font-[gilroy] font-light leading-[3vw]">
+                <p className="est-text text-[3vw] font-[gilroy] font-light leading-[3vw]">
                   Our Anjusa Academy started its <br /> journey in 2003 and it has been <br />
                   21 long years since then. <br /> Currently, we are constantly <br /> painting the picture of the future with 400+ students.
                 </p>

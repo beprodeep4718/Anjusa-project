@@ -58,3 +58,13 @@ html, body {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (max-device-width: 480px) {
+  .est-text {
+    font-size: 5vw;
+    line-height: 4.6vw;
+  }
+  .est-text-heading {
+    font-size: 6vw;
+  }
+}
