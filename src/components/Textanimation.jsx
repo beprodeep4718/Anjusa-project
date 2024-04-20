@@ -45,7 +45,7 @@ const Textanimation = ({refer}) => {
           <section id="textSection" className="p-5">
             <div className="container">
               <div className="wrapper">
-                <p className="white text-5xl font-[gilroy] font-light leading-[70px]">
+                <p className="white text-[3vw] font-[gilroy] font-light leading-[3vw]">
                   Our Anjusa Academy started its <br /> journey in 2003 and it has been <br />
                   21 long years since then. <br /> Currently, we are constantly <br /> painting the picture of the future with 400+ students.
                 </p>

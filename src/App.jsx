@@ -13,7 +13,7 @@ const App = () => {
         <Slider />
       </div>
       <div ref={container}>
-        <div className="w-full min-h-screen p-16 mt-10" id="text-target">
+        <div className="w-full max-h-screen p-16 mt-10" id="text-target">
           <Textanimation refer={container}/>
         </div>
       </div>
