@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: acta;
+    src: url(./assets/fonts/ActaDisplayLight.woff2);
+}
+@font-face {
+    font-family: gilroy;
+    src: url(./assets/fonts/Gilroy-ExtraBold800.woff);
+}
+
+:root {
+  --primary-color: #F1CF0C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+
+.swiper {
+  width: 80%;
+  max-height: 60vw;
+}
+
+.swiper-slide {
+  width: 500px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10px;
+  overflow: hidden !important;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
