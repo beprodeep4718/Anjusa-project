@@ -14,6 +14,10 @@ import slide_img3 from '../assets/images/img3.webp'
 import slide_img4 from '../assets/images/img4.webp'
 import slide_img5 from '../assets/images/img5.webp'
 import slide_img6 from '../assets/images/img6.webp'
+import slide_img7 from '../assets/images/img7.webp'
+import slide_img8 from '../assets/images/img8.webp'
+import slide_img9 from '../assets/images/img9.webp'
+import slide_img10 from '../assets/images/img10.webp'
 
 
 // import required modules
@@ -37,9 +41,9 @@ const Slider = () => {
             disableOnInteraction: false,
           }}
         coverflowEffect={{
-            rotate: 50,
+            rotate: 0,
             stretch: 0,
-            depth: 100,
+            depth: 0,
             modifier: 1,
             slideShadows: true,
           }}
@@ -64,6 +68,18 @@ const Slider = () => {
         </SwiperSlide>
         <SwiperSlide>
             <img src={slide_img6} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src={slide_img7} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src={slide_img8} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src={slide_img9} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+            <img src={slide_img10} alt="" />
         </SwiperSlide>
         
       </Swiper>
