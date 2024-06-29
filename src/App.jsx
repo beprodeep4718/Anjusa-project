@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Admin from "./components/Admin";
+import Notfound from "./components/Notfound";
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<Admin />} />
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>
       <Footer />
