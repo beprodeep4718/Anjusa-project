@@ -6,9 +6,12 @@ import Admin from "./components/Admin";
 import Notfound from "./components/Notfound";
 import 'react-toastify/dist/ReactToastify.css';
 import { inject } from "@vercel/analytics"
+import { useEffect } from "react";
 
 const App = () => {
-  inject();
+  useEffect(()=>{
+    inject();
+  },[])
   return (
     <div className="w-full bg-zinc-200 overflow-hidden">
       <Navbar name="bepro" />
