@@ -29,6 +29,10 @@ const Admin = () => {
       setData({ desc: "" });
     } catch (error) {
       console.log(error);
+      toast.error("Failed to add notice! (Internal Server Error)", {
+        theme: "dark",
+        autoClose: 3000,
+      });
     }
   };
   const handleDelete = async (id) => {
@@ -50,6 +54,10 @@ const Admin = () => {
       });
     } catch (error) {
       console.log(error);
+      toast.error("Failed to delete notice! (Internal Server Error)", {
+        theme: "dark",
+        autoClose: 3000,
+      });
     }
   };
   return (
@@ -68,7 +76,9 @@ const Admin = () => {
               value={data.desc}
               cols="35"
               rows="10"
-              className="p-4 w-full"
+              placeholder="Write your notice here..."
+              required
+              className="p-4 w-full italic"
               onChange={handleChange}
             ></textarea>
             <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-white ">

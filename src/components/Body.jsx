@@ -12,7 +12,7 @@ const Body = () => {
           <Slider />
         </div>
         <section className="notice">
-          <h1 className="font-bold text-2xl leading-none tracking-tight font-[acta]">Notice</h1>
+          <h1 className="font-bold text-2xl leading-none tracking-wide font-[acta] text-[#2C2E43]">Notice</h1>
           <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-xl mt-5 shadow-md">
             {notice.length == 0 && <p className="text-primary-100 font-semibold">No notice Yet!</p>}
             {notice.map((item)=> {
