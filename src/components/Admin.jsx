@@ -48,7 +48,7 @@ const Admin = () => {
       );
       const res_data = await response.json();
       console.log(res_data);
-      toast.error("Notice deleted successfully!", {
+      toast.success("Notice deleted successfully!", {
         theme: "dark",
         autoClose: 2000,
       });
