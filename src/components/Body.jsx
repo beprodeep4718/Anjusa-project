@@ -18,14 +18,15 @@ const Body = () => {
         </h1>
         <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-xl mt-5 shadow-md">
           {loading && (
-            <l-ring-2
-              size="40"
-              stroke="5"
-              stroke-length="0.25"
-              bg-opacity="0.1"
-              speed="0.8"
-              color="black"
-            ></l-ring-2>
+            // <l-ring-2
+            //   size="40"
+            //   stroke="5"
+            //   stroke-length="0.25"
+            //   bg-opacity="0.1"
+            //   speed="0.8"
+            //   color="black"
+            // ></l-ring-2>
+            <p>Loading.....</p>
           )}
           {notice.map((item) => {
             return (
