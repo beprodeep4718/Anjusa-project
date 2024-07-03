@@ -6,10 +6,14 @@ import Admin from "./components/Admin";
 import Notfound from "./components/Notfound";
 import 'react-toastify/dist/ReactToastify.css';
 import { inject } from "@vercel/analytics"
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+
 import { useEffect } from "react";
 
 const App = () => {
   useEffect(()=>{
+    injectSpeedInsights();
     inject();
   },[])
   return (
