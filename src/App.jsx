@@ -17,8 +17,8 @@ const App = () => {
     inject();
   },[])
   return (
-    <div className="w-full bg-zinc-200 overflow-hidden">
-      <Navbar name="bepro" />
+    <div className="w-full bg-zinc-200 min-h-screen">
+      <Navbar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Body />} />

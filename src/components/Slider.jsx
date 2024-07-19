@@ -8,9 +8,9 @@ import 'swiper/css/navigation';
 
 
 //import images 
-import slide_img1 from '../assets/images/img1.webp'
-import slide_img2 from '../assets/images/img2.webp'
-import slide_img3 from '../assets/images/img3.webp'
+import slide_img1 from '../assets/images/WhatsApp Image 2024-07-19 at 23.07.20_8d93ccfd.webp'
+import slide_img2 from '../assets/images/WhatsApp Image 2024-07-19 at 23.07.20_91ae0e1f.webp'
+import slide_img3 from '../assets/images/WhatsApp Image 2024-07-19 at 23.07.20_9ef06dd0.webp'
 import slide_img4 from '../assets/images/img4.webp'
 import slide_img5 from '../assets/images/img5.webp'
 import slide_img6 from '../assets/images/img6.webp'

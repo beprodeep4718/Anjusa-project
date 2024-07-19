@@ -16,7 +16,7 @@ const Body = () => {
         <h1 className="font-bold text-2xl leading-none tracking-wide font-[acta] text-[#2C2E43]">
           Notice
         </h1>
-        <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-xl mt-5 shadow-md">
+        <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-lg mt-5 shadow-md">
           {loading && (
             // <l-ring-2
             //   size="40"
