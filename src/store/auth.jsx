@@ -4,6 +4,7 @@ export const Authcontext = createContext();
 
 export const AuthProvider = ({ children }) => {
   // https://anjusa-backend.onrender.com
+  //http://localhost:3000/api/auth/notices
 
   const [notice, setNotice] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,12 +30,11 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     getNotice();
-  }, []);
+  }, [])
   return (
-    <Authcontext.Provider value={{ notice, serverUrl, loading }}>
+    <Authcontext.Provider value={{ notice, serverUrl, loading, getNotice }}>
       {children}
     </Authcontext.Provider>
   );

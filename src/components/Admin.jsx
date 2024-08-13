@@ -3,7 +3,7 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
 const Admin = () => {
-  const { notice, serverUrl } = useAuth();
+  const { notice, serverUrl, getNotice } = useAuth();
   const [data, setData] = useState({ desc: "" });
   const handleChange = (e) => {
     setData((prev) => {
@@ -26,6 +26,7 @@ const Admin = () => {
         theme: "dark",
         autoClose: 2000,
       });
+      getNotice();
       setData({ desc: "" });
     } catch (error) {
       console.log(error);
@@ -52,6 +53,7 @@ const Admin = () => {
         theme: "dark",
         autoClose: 2000,
       });
+      getNotice();
     } catch (error) {
       console.log(error);
       toast.error("Failed to delete notice! (Internal Server Error)", {

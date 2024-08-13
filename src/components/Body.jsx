@@ -3,9 +3,14 @@ import Textanimation from "./Textanimation";
 import outdoorimg from "../assets/images/img7.webp";
 import { useAuth } from "../store/auth";
 import "ldrs/ring2";
+import { useEffect } from "react";
 
 const Body = () => {
-  const { notice, loading } = useAuth();
+  const { notice, loading, getNotice } = useAuth();
+
+  useEffect(() => {
+    getNotice();
+  }, []);  
 
   return (
     <div className="px-4 py-2 space-y-6 lg:px-16 lg:space-y-16">
@@ -18,15 +23,17 @@ const Body = () => {
         </h1>
         <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-lg mt-5 shadow-md">
           {loading && (
-            // <l-ring-2
-            //   size="40"
-            //   stroke="5"
-            //   stroke-length="0.25"
-            //   bg-opacity="0.1"
-            //   speed="0.8"
-            //   color="black"
-            // ></l-ring-2>
-            <p>Loading.....</p>
+            <>
+              <l-ring-2
+                size="40"
+                stroke="5"
+                stroke-length="0.25"
+                bg-opacity="0.1"
+                speed="0.8"
+                color="black"
+              ></l-ring-2>
+              <p>Loading.....</p>
+            </>
           )}
           {notice.map((item) => {
             return (
