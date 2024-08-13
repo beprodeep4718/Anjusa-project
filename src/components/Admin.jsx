@@ -22,11 +22,11 @@ const Admin = () => {
       });
       const res_data = await response.json();
       console.log(res_data);
+      getNotice();
       toast.success("Notice added successfully!", {
         theme: "dark",
         autoClose: 2000,
       });
-      getNotice();
       setData({ desc: "" });
     } catch (error) {
       console.log(error);
@@ -49,11 +49,11 @@ const Admin = () => {
       );
       const res_data = await response.json();
       console.log(res_data);
+      getNotice();
       toast.success("Notice deleted successfully!", {
         theme: "dark",
         autoClose: 2000,
       });
-      getNotice();
     } catch (error) {
       console.log(error);
       toast.error("Failed to delete notice! (Internal Server Error)", {
