@@ -13,7 +13,7 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${serverUrl}/api/auth/add-notice`, {
+      const response = await fetch(`${serverUrl}/api/add-notice`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const Admin = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `${serverUrl}/api/auth/delete-notice/${id}`,
+        `${serverUrl}/api/delete-notice/${id}`,
         {
           method: "DELETE",
           headers: {

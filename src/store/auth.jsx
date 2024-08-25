@@ -8,12 +8,12 @@ export const AuthProvider = ({ children }) => {
 
   const [notice, setNotice] = useState([]);
   const [loading, setLoading] = useState(true);
-  const serverUrl = "https://anjusa-backend.onrender.com";
+  const serverUrl = "http://localhost:3000";
 
   const getNotice = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${serverUrl}/api/auth/notices`);
+      const response = await fetch(`${serverUrl}/api/notices`);
       if (!response.ok) {
         throw new Error("Failed to get notices");
       }
