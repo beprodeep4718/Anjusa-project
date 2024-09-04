@@ -80,7 +80,7 @@ const Admin = () => {
               rows="10"
               placeholder="Write your notice here..."
               required
-              className="p-4 w-full italic"
+              className="p-4 w-full italic text-zinc-900"
               onChange={handleChange}
             ></textarea>
             <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-zinc-700 ">

@@ -7,7 +7,7 @@ const HeroSec = () => {
         Portray Your Imagination
       </h1>
       <p className="text-lg text-gray-500 text-center px-4">
-        Unlock the full potential of your potential by becoming a professional
+        Unlock your full potential by becoming a professional
         artist
       </p>
       <button className="w-32 h-10 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition duration-300">
