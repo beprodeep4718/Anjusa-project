@@ -44,7 +44,7 @@ const NoticeSection = () => {
                   className="px-4 py-1 h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
                 >
                   {item.desc}
-                  <span className="text-[#22ff00b5] text-sm">{timeAgo(new Date(item.createdAt))}</span>
+                  <span className="text-[#22ff00b5] text-[10px]">{timeAgo(new Date(item.createdAt))}</span>
                 </li>
               ))}
             </ul>

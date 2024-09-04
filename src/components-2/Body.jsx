@@ -7,7 +7,7 @@ import outdoorimg from "../assets/images/img7.webp"
 const Body = () => {
 
   return (
-    <div className="main relative overflow-x-hidden w-full pt-6">
+    <div className="main relative overflow-x-hidden w-full pt-6 min-h-screen bg-zinc-900">
       <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-24 -left-32 blur-[100px]"></div>
       <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-36 -right-32 blur-[100px]"></div>
 

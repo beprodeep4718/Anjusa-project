@@ -65,7 +65,7 @@ const Admin = () => {
   return (
     <div>
       <div className="p-4 space-y-6 ">
-        <h1 className="font-bold text-2xl mb-10 font-[gilroy]">Admin Panel</h1>
+        <h1 className="font-bold text-2xl mb-10 font-[gilroy] mt-16">Admin Panel</h1>
 
         <span className="bg-primary-100 px-4 py-2 text-lg font-semibold font-[gilroy]">
           add new notice
@@ -83,7 +83,7 @@ const Admin = () => {
               className="p-4 w-full italic"
               onChange={handleChange}
             ></textarea>
-            <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-white ">
+            <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-zinc-700 ">
               Submit
             </button>
           </form>
@@ -99,7 +99,7 @@ const Admin = () => {
             {notice.map((item) => {
               return (
                 <div key={item._id} className="flex flex-col items-start mt-2">
-                  <li className="text-[#595260] font-[gilroy]">{item.desc}</li>
+                  <li className="text-zinc-200font-[gilroy]">{item.desc}</li>
                   <button
                     className="px-2 py-1 bg-red-700 text-white"
                     onClick={() => {
