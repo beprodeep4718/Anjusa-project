@@ -12,6 +12,16 @@ const Body = () => {
     getNotice();
   }, []);  
 
+  // Check if notice[0] exists
+  let hr = null;
+  if (notice && notice.length > 0 && notice[0].createdAt) {
+    const date = new Date(notice[0].createdAt);
+    hr = date.getHours();
+    console.log(hr);
+  } else {
+    console.log("No notices available or createdAt is undefined.");
+  }
+
   return (
     <div className="px-4 py-2 space-y-6 lg:px-16 lg:space-y-16">
       <div className="w-full flex items-center justify-center mt-3">
@@ -42,7 +52,6 @@ const Body = () => {
               </div>
             );
           })}
-          
         </ol>
       </section>
       <div>
@@ -79,3 +88,4 @@ const Body = () => {
 };
 
 export default Body;
+

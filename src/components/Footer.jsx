@@ -12,7 +12,7 @@ const Footer = () => {
   //https://www.youtube.com/@anjusa
   return (
     <>
-      <div className="flex items-center flex-col justify-center mt-7">
+      <div className="flex items-center flex-col justify-center mt-7 text-black">
         <div className="footer w-full py-4 lg:pt-12 flex flex-col items-center justify-center gap-4 flex-wrap bg-[#F0A500] rounded-tl-[50px] lg:rounded-tl-[90px]">
           <div className="footer-head flex items-center justify-center flex-wrap gap-6">
             <div className="logo">

@@ -11,6 +11,11 @@
     src: url(./assets/fonts/Gilroy-ExtraBold800.woff);
 }
 
+@font-face {
+  font-family: lato;
+  src: url(./assets/fonts/Lato-Regular.ttf);
+}
+
 :root {
   --primary-color: #F1CF0C;
   --secondary-color: #8E8E8E;

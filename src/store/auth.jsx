@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
   const [notice, setNotice] = useState([]);
   const [loading, setLoading] = useState(true);
-  const serverUrl = "https://anjusa-backend-6l1c.onrender.com";
+  const serverUrl = "https://anjusa-backend.onrender.com";
 
   const getNotice = async () => {
     try {
