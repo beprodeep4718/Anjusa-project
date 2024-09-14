@@ -27,7 +27,7 @@ const NoticeSection = () => {
     getNotice();
   }, []);
   return (
-    <div className="w-full Notice-Section px-4 py-6">
+    <div className="w-full relative Notice-Section px-4 py-6">
       <div>
         <div className="font-[lato] inline-flex items-center justify-center gap-3 rounded-full text-lg bg-[#24FF00] text-zinc-900 px-3 py-1 shadow-[0px_0px_15px_6px_rgba(36,255,0,0.4)] font-semibold">
           Notice
@@ -37,14 +37,14 @@ const NoticeSection = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ul className="flex flex-col items-center justify-center gap-2">
+            <ul className="flex flex-col items-center justify-center gap-6">
               {notice.map((item) => (
                 <li
                   key={item._id}
-                  className="px-4 py-1 h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
+                  className="relative px-4 py-1 h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
                 >
                   {item.desc}
-                  <span className="text-[#22ff00b5] text-[10px]">{timeAgo(new Date(item.createdAt))}</span>
+                  <span className="text-[#22ff00b5] absolute -top-5 right-1 text-[12px]">{timeAgo(new Date(item.createdAt))}</span>
                 </li>
               ))}
             </ul>

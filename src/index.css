@@ -10,10 +10,19 @@
     font-family: gilroy;
     src: url(./assets/fonts/Gilroy-ExtraBold800.woff);
 }
+@font-face {
+    font-family: gilroy-light;
+    src: url(./assets/fonts/Gilroy-Light.ttf);
+}
 
 @font-face {
   font-family: lato;
   src: url(./assets/fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: Kausan;
+  src: url(./assets/fonts/KaushanScript-Regular.ttf);
 }
 
 :root {

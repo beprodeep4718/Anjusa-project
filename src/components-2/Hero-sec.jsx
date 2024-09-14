@@ -2,7 +2,7 @@
 
 const HeroSec = () => {
   return (
-    <div className="hero-sec px-4 py-6 flex flex-col items-center gap-5">
+    <div className="hero-sec relative px-4 py-6 flex flex-col items-center gap-5">
       <h1 className="text-5xl font-bold text-center text-zinc-200">
         Portray Your Imagination
       </h1>
