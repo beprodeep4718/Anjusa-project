@@ -41,7 +41,7 @@ const NoticeSection = () => {
               {notice.map((item) => (
                 <li
                   key={item._id}
-                  className="relative px-4 py-1 h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
+                  className="relative px-4 py-1 min-h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
                 >
                   {item.desc}
                   <span className="text-[#22ff00b5] absolute -top-5 right-1 text-[12px]">{timeAgo(new Date(item.createdAt))}</span>
