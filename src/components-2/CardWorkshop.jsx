@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const CardWorkshop = ({ data }) => {
 
@@ -7,7 +8,7 @@ const CardWorkshop = ({ data }) => {
         <img src={data.img} alt="" className="object-cover h-full w-full" />
         <div className="absolute h-full w-full bg-gradient-to-b from-zinc-50/5 to-zinc-900/75"></div>
         <h1 className="absolute bottom-4 left-4  font-[gilroy-light] font-extralight tracking-wide text-xl border-b-[1px]">
-          Explore More ↗
+          <Link to={'/'}>Explore More ↗</Link>
         </h1>
       </div>
       <div className="w-full px-4 flex items-center justify-between font-[gilroy-light] text-lg">

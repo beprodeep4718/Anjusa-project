@@ -9,7 +9,7 @@ const Body = () => {
       <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-24 -left-32 blur-[100px]"></div>
       <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-36 -right-32 blur-[100px]"></div>
 
-      <div className="w-full flex justify-center items-center mt-20">
+      <div className="w-full flex justify-center items-center mt-20 lg:px-24">
         <Slider />
       </div>
       <HeroSec />
