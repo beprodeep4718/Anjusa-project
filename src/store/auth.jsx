@@ -1,45 +1,74 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { NoticeContext } from "./noticeContext";
 
-export const Authcontext = createContext();
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // https://anjusa-backend.onrender.com
-  //http://localhost:3000/api/auth/notices
+  const { serverUrl } = useContext(NoticeContext);
 
-  const [notice, setNotice] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const serverUrl = "https://anjusa-backend.onrender.com";
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [user, setUser] = useState(null);
+  const [admin, setAdmin] = useState(false);
+  console.log(user)
+  
+  const isLoggedIn = !!token;
 
-  const getNotice = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`${serverUrl}/api/notices`);
-      if (!response.ok) {
-        throw new Error("Failed to get notices");
-      }
-      const data = await response.json();
-      setLoading(false);
-      if(!data) {
-        setNotice([{desc: "No notices found"}]);
-        return;  // Return early if no data is received. This prevents unnecessary API calls.  // This is a good practice to prevent potential bugs.
-      }
-      setNotice(data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
+  const checkAdmin = () => {
+    if (user && user.role === "admin") {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
     }
   };
+
+  const storeToken = (newToken) => {
+    setToken(newToken);
+    localStorage.setItem("token", newToken);
+  };
+
+  const userAuthentication = async () => {
+    if (!token) return;
+  
+    try {
+      const response = await fetch(`${serverUrl}/user/userinfo`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to authenticate user");
+      }
+  
+      const data = await response.json();
+      setUser(data.user);
+    } catch (error) {
+      console.error("Authentication error:", error.message);
+      logout(); 
+    }
+  };
+  
+  const logout = () => {
+    setUser(null);
+    setToken(null);
+    setAdmin(false);
+    localStorage.removeItem("token");
+  };
+
   useEffect(() => {
-    getNotice();
-  }, [])
+    userAuthentication();
+  }, [token]); // Run authentication whenever token changes
+
+  useEffect(() => {
+    checkAdmin();
+  }, [user]); // Run checkAdmin whenever user changes
+
   return (
-    <Authcontext.Provider value={{ notice, serverUrl, loading, getNotice }}>
+    <AuthContext.Provider value={{ storeToken, user, isLoggedIn, logout, admin }}>
       {children}
-    </Authcontext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(Authcontext);
-};
+export const useAuth = () => useContext(AuthContext);

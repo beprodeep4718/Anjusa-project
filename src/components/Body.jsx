@@ -1,91 +1,30 @@
-import Slider from "./Slider";
-import Textanimation from "./Textanimation";
-import outdoorimg from "../assets/images/img7.webp";
-import { useAuth } from "../store/auth";
-import "ldrs/ring2";
-import { useEffect } from "react";
+import Slider from "../components/Slider";
+import HeroSec from "../components/Hero-sec";
+import NoticeSection from "./Notice-Section";
+import Workshop from "./Workshop";
 
 const Body = () => {
-  const { notice, loading, getNotice } = useAuth();
-
-  useEffect(() => {
-    getNotice();
-  }, []);  
-
-  // Check if notice[0] exists
-  let hr = null;
-  if (notice && notice.length > 0 && notice[0].createdAt) {
-    const date = new Date(notice[0].createdAt);
-    hr = date.getHours();
-    console.log(hr);
-  } else {
-    console.log("No notices available or createdAt is undefined.");
-  }
-
   return (
-    <div className="px-4 py-2 space-y-6 lg:px-16 lg:space-y-16">
-      <div className="w-full flex items-center justify-center mt-3">
+    <div className="main relative overflow-x-hidden w-full pt-6 min-h-screen bg-zinc-900">
+      <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-24 -left-32 blur-[100px]"></div>
+      <div className="w-52 h-52 bg-[#F0A500] absolute rounded-full top-36 -right-32 blur-[100px]"></div>
+
+      <div className="w-full flex justify-center items-center mt-20 lg:px-24">
         <Slider />
       </div>
-      <section className="notice">
-        <h1 className="font-bold text-2xl leading-none tracking-wide font-[acta] text-[#2C2E43]">
-          Notice
-        </h1>
-        <ol className="py-8 px-4 ring-1 ring-gray-500 rounded-lg mt-5 shadow-md">
-          {loading && (
-            <>
-              <l-ring-2
-                size="40"
-                stroke="5"
-                stroke-length="0.25"
-                bg-opacity="0.1"
-                speed="0.8"
-                color="black"
-              ></l-ring-2>
-              <p>Loading.....</p>
-            </>
-          )}
-          {notice.map((item) => {
-            return (
-              <div key={item._id} className="flex items-center mt-2">
-                <li className="text-[#595260] font-[gilroy]">{item.desc}</li>
-              </div>
-            );
-          })}
-        </ol>
-      </section>
-      <div>
-        <div
-          className="text-animation-cont w-full max-h-screen mt-[30px]"
-          id="text-target"
-        >
-          <Textanimation />
+      <HeroSec />
+      <NoticeSection />
+      <div className="relative w-full py-6 px-4">
+        <div className="relative w-full mb-10">
+          <span className="flex items-center justify-start gap-2 text-3xl">
+            <span className="font-[Kausan] text-[#F0A500]">WorkShop</span>
+            <span className="font-[gilroy] text-zinc-300">Tour</span>
+          </span>
         </div>
-      </div>
-      <div className="workshop-cont relative max-h-screen w-full flex">
-        <div className="w-1/2 h-full">
-          <img
-            src={outdoorimg}
-            alt="outdoor imge"
-            width={400}
-            className="rounded-lg w-[80%]"
-          />
-        </div>
-        <div className="w-1/2 h-full">
-          <h1 className="text-center lg:text-right font-bold font-[acta] text-[4vw] text-[#2C2E43]">
-            OutDoor Workshop
-          </h1>
-          <p className="text-center lg:text-right font-semibold font-[gilroy] mt-6 tracking-wide text-[1.6vw] text-[#595260]">
-            At Anjusa, we believe that creativity knows no bounds. That&apos;s
-            why we&apos;ve taken our passion for art beyond the studio walls and
-            into the great outdoors. Join us for our captivating Outdoor Drawing
-            Workshops, where nature becomes both muse and canvas.
-          </p>
-        </div>
+        <Workshop />
       </div>
     </div>
   );
 };
 
 export default Body;
-

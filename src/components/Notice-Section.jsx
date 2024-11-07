@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useAuth } from "../store/auth";
+import { useContext } from "react";
 import { LuMoveRight } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { NoticeContext } from "../store/noticeContext";
 
 const timeAgo = (date) => {
   const now = new Date();
@@ -21,11 +21,8 @@ const timeAgo = (date) => {
 };
 
 const NoticeSection = () => {
-  const { notice, loading, getNotice } = useAuth();
+  const { notice, loading } = useContext(NoticeContext);
 
-  useEffect(() => {
-    getNotice();
-  }, []);
   return (
     <div className="w-full relative Notice-Section px-4 py-6 lg:px-24">
       <div>
