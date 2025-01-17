@@ -9,10 +9,12 @@ import { inject } from "@vercel/analytics";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import "remixicon/fonts/remixicon.css";
 import { useEffect } from "react";
-import AllNotice from "./pages/AllNotice";
+import NoticePage from "./pages/NoticePage";
 import Login from "./pages/Login";
+import { useAuth } from "./store/auth";
 
 const App = () => {
+  const {admin} = useAuth();
   useEffect(() => {
     injectSpeedInsights();
     inject();
@@ -25,12 +27,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Body />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/all-notices" element={<AllNotice />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path="/notices/:id" element={<NoticePage />} />
+          <Route path="/admin" element={admin ? <Admin /> : <Login/>} />
           <Route path="*" element={<Notfound />} />
         </Routes>
-      </BrowserRouter>
       <Footer />
+      </BrowserRouter>
     </div>
   );
 };

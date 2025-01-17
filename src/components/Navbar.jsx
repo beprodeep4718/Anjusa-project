@@ -36,22 +36,28 @@ const Navbar = () => {
   const menuRef = useRef(null);
   useGSAP(() => {
     if (close) {
-      gsap.to(menuRef.current, { left: 0, duration: 0.5, ease: "power3.inOut" });
+      gsap.to(menuRef.current, {
+        left: 0,
+        duration: 0.5,
+        // ease: "power3.inOut",
+      });
     } else {
       gsap.to(menuRef.current, {
         left: "-100%",
         duration: 0.5,
-        ease: "power3.inOut",
+        // ease: "power3.inOut",
       });
     }
   }, [close]);
 
-  const {isLoggedIn, admin} = useAuth();
+  const { isLoggedIn, admin } = useAuth();
 
   return (
     <div className="nav fixed z-50 backdrop-blur-sm top-0 left-0 w-full px-5 py-1">
       <div className="w-full pt-2 flex justify-between items-center">
-        <img src={logo} alt="Logo" className="w-24" />
+        <Link to={"/"}>
+          <img src={logo} alt="Logo" className="w-24" />
+        </Link>
         <div className="flex items-start">
           <div className="w-[1px] h-8 bg-zinc-200 header-line-v"></div>
           <i
@@ -78,21 +84,24 @@ const Navbar = () => {
           >
             Home
           </Link>
-          {admin && <Link
-            to="/admin"
-            className="font-semibold text-gray-300"
-            onClick={() => setclose(!close)}
-          >
-            Admin Panel
-          </Link>}
-          {!isLoggedIn && <Link
-            to="/login"
-            className="font-semibold text-gray-300"
-            onClick={() => setclose(!close)}
-          >
-            Log In
-          </Link>}
-          
+          {admin && (
+            <Link
+              to="/admin"
+              className="font-semibold text-gray-300"
+              onClick={() => setclose(!close)}
+            >
+              Admin Panel
+            </Link>
+          )}
+          {!isLoggedIn && (
+            <Link
+              to="/login"
+              className="font-semibold text-gray-300"
+              onClick={() => setclose(!close)}
+            >
+              Log In
+            </Link>
+          )}
         </div>
       </div>
     </div>

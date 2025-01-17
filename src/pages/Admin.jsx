@@ -1,33 +1,36 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { NoticeContext } from "../store/noticeContext";
 import { useAuth } from "../store/auth";
 import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
-  const { notice, serverUrl, getNotice } = useContext(NoticeContext);
+  const { notice, getNotice } = useContext(NoticeContext);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [data, setData] = useState({ desc: "" });
+  const [data, setData] = useState("");
+  const [image, setImage] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
   const handleChange = (e) => {
-    setData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setData(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const url = isEditing
-        ? `${serverUrl}/api/update-notice/${editId}`
-        : `${serverUrl}/api/add-notice`;
+        ? `${import.meta.env.VITE_SERVER_URL}/api/update-notice/${editId}`
+        : `${import.meta.env.VITE_SERVER_URL}/api/add-notice`;
 
       const method = isEditing ? "PUT" : "POST";
+      const formdata = new FormData();
+      if (data) formdata.append("desc", data);
+      if (image) formdata.append("image", image);
       const response = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: formdata,
       });
       const res_data = await response.json();
       console.log(res_data);
@@ -54,10 +57,13 @@ const Admin = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${serverUrl}/api/delete-notice/${id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SERVER_URL}/api/delete-notice/${id}`,
+        {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       const res_data = await response.json();
       console.log(res_data);
@@ -119,7 +125,13 @@ const Admin = () => {
               className="p-4 w-full h-52 placeholder:italic outline-none text-zinc-900"
               onChange={handleChange}
             ></textarea>
-            <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-zinc-700 ">
+            <input
+              type="file"
+              className="w-full p-2 border rounded"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+            />
+            <button className="font-[gilroy] px-6 py-2 text-xl bg-primary-200 text-zinc-700 rounded-md">
               {isEditing ? "Update" : "Submit"}
             </button>
           </form>

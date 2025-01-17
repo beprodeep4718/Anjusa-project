@@ -5,12 +5,12 @@ export const NoticeContext = createContext();
 export const NoticeProvider = ({ children }) => {
   const [notice, setNotice] = useState([]);
   const [loading, setLoading] = useState(true);
-  const serverUrl = "https://anjusa-backend.onrender.com";
-
+  const serverUrl = "http://192.168.56.1:3000";
+//https://anjusa-backend.onrender.com
   const getNotice = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${serverUrl}/api/notices`);
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/api/notices`);
       if (!response.ok) {
         throw new Error("Failed to get notices");
       }

@@ -32,7 +32,7 @@ const NoticeSection = () => {
         </div>
         <div className="mt-5 space-y-5">
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-center text-xl">Loading...</p>
           ) : (
             <ul className="flex flex-col items-center justify-center gap-6">
               {notice.map((item) => (
@@ -40,10 +40,12 @@ const NoticeSection = () => {
                   key={item._id}
                   className="relative px-4 py-1 min-h-14 w-full flex items-center justify-between bg-zinc-800 rounded-sm"
                 >
-                  {item.desc}
-                  <span className="text-[#22ff00b5] absolute -top-5 right-1 text-[12px]">
-                    {timeAgo(new Date(item.updatedAt))}
-                  </span>
+                  <Link to={`/notices/${item._id}`}>
+                  {item.desc} {" "} {item.Image?.url && <i className="ri-file-image-line text-[#03C03C] text-xl"></i>}
+                    <span className="text-[#22ff00b5] absolute -top-5 right-1 text-[12px]">
+                      {timeAgo(new Date(item.updatedAt))}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>

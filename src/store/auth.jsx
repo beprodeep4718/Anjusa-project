@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     if (!token) return;
   
     try {
-      const response = await fetch(`${serverUrl}/user/userinfo`, {
+      const response = await fetch(`${import.meta.env.VITE_SERVER_URL}/user/userinfo`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
